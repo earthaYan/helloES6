@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="按钮1">
+    <input type="button" value="按钮2">
+    <input type="button" value="按钮3">
+    <script>
+        window.onload=function(){
+            var aBtn=document.getElementsByTagName("input")
+            //普通js只有函数才有作用域（function(){})()立刻执行函数
+            // for(var i=0;i<aBtn.length;i++){
+            //     (function(i){
+            //         aBtn[i].onclick=function(){alert(i)}
+            //     })(i)
+            // }
+            for(let i=0;i<aBtn.length;i++){
+                aBtn[i].onclick=function(){
+                    alert(i)
+                }
+            }
+        }
+    </script>
+</body>
+</html>

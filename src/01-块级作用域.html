@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>块级作用域</title>
+</head>
+<body>
+    <script>
+        {
+            var a=12
+            let b=13
+            b=16
+            const c=16
+            // c=18//报错Uncaught TypeError: Assignment to constant variable.
+            // const c=17//块级作用域内 
+            //报错Uncaught SyntaxError: Identifier 'c' has already been declared
+        }
+        let b=13
+        const c=19
+        alert(a)//正常
+        alert(b)//报错a is not defined
+        alert(c)
+        // let a=19//块级作用域外 
+        //报错Uncaught SyntaxError: Identifier 'a' has already been declared
+    </script>
+</body>
+</html>
