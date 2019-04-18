@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr=[12,5,8]
+        // let res=arr.map(function(item){
+        //    return 2*item
+        // })
+        // let res=arr.map(item => item*2)
+        // alert(res)
+        let score=[50,60,70,10]
+        // let res=score.map(item => item>=60?'及格':'不及格')
+        // console.log(score,res)
+        // let res1=score.reduce(function(tmp,item,index){
+        //     //tmp为上一次结果
+        //     //item为当前数字
+        //     //index为下标（迭代次数）
+        //     console.log(tmp,item,index)
+        //     if(index!=this.length-1){
+        //         return tmp+item
+        //     } else{
+        //         return (tmp+item)/arr.length
+        //     }
+        // })
+        // let res2=score.filter(item=>{
+        //     // if(item%4==0){
+        //     //     return true
+        //     // }else{
+        //     //     return false
+        //     // }
+        //     return item%4==0
+        // })
+        let res3=score.forEach((item,index)=>{
+           return item//undefined，没有返回值
+        })
+    </script>
+</body>
+</html>
