@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let json={a:12,n:5}
+        let str1='{"a":12,"n":5}'
+        console.log(JSON.parse(str1))
+        let str="http://www.baidu.com/user?data="+encodeURIComponent(JSON.stringify(json))
+        let a=2,b=5
+        let json2={
+            a:a,
+            b:b,
+            show(){
+                alert(this.a)
+            }
+        }
+        console.log(json2.show())
+    </script>
+</body>
+</html>

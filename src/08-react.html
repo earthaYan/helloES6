@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">
+
+    </div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script> 
+    <script crossorigin src="https://cdn.bootcss.com/babel-standalone/6.25.0/babel.js"></script>
+    <script type="text/babel">
+        class Test extends React.Component{
+            constructor(...args){
+                super(...args)
+            }
+            render(){
+                return <h1>123</h1>
+            }
+        }
+        class Item extends React.Component{
+            constructor(...args){
+                super(...args)
+            }
+            render(){
+                return <li>{this.props.str}</li>
+            }
+        }
+        class List extends React.Component{
+            constructor(...args){
+                super(...args)
+            }
+            render(){
+                let aItems=[]
+                for(let i=0;i<this.props.arr.length;i++){
+                    aItems.push(<Item key={i} str={this.props.arr[i]}></Item>)
+                }
+                return  <ul>
+                    {aItems} 
+                </ul>
+            }
+        }
+        window.onload=function() {
+            let oDiv=document.getElementById("div1")
+            ReactDOM.render(
+                <List arr={['a','b','v']}></List>,
+                oDiv
+            )
+        }
+    </script>
+</body>
+</html>
