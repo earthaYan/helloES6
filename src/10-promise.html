@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <script crossorigin integrity="sha384-JUMjoW8OzDJw4oFpWIB2Bu/c6768ObEthBMVSiIx4ruBIEdyNSUQAjJNFqT5pnJ6" src="http://lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script>
+    <script>
+        let p=new Promise(function(resolve,reject){
+            //异步代码
+            //resolve成功
+            //reject失败
+            $.ajax({
+                url:'https://easy-mock.com/mock/5cadb508b56fc13f6206ad0e/example/arr.txt',
+                type:'get',
+                dataType:'json',
+                success(arr){
+                    resolve(arr)
+                },
+                error(err){
+                    reject(err)
+                }
+            })
+        })
+        p.then(function(data){
+            console.log('调用成功   '+data)
+        },function(err){
+            console.log('调用失败   '+err)
+        })
+    </script>
+</body>
+</html>

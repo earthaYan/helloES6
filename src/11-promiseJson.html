@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script crossorigin integrity="sha384-JUMjoW8OzDJw4oFpWIB2Bu/c6768ObEthBMVSiIx4ruBIEdyNSUQAjJNFqT5pnJ6" src="http://lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script>
+    <script>
+        function createPromise(url){
+            return new Promise(function(resolve,reject){
+            //异步代码
+            //resolve成功
+            //reject失败
+            $.ajax({
+                url:url,
+                type:'get',
+                dataType:'json',
+                success(arr){
+                    resolve(arr)
+                },
+                error(err){
+                    reject(err)
+                }
+            })
+        })
+        }
+        // let p1=new Promise(function(resolve,reject){
+        //     //异步代码
+        //     //resolve成功
+        //     //reject失败
+        //     $.ajax({
+        //         url:'https://easy-mock.com/mock/5cadb508b56fc13f6206ad0e/example/arr.txt',
+        //         type:'get',
+        //         dataType:'json',
+        //         success(arr){
+        //             resolve(arr)
+        //         },
+        //         error(err){
+        //             reject(err)
+        //         }
+        //     })
+        // })
+
+        // let p2=new Promise(function(resolve,reject){
+        //     $.ajax({
+        //         url:'https://easy-mock.com/mock/5cadb508b56fc13f6206ad0e/example/json.txt',
+        //         dataType:'json',
+        //         type:'get',
+        //         success:function(data){
+        //             resolve(data)
+        //         },
+        //         error:function(err){
+        //             reject(err)
+        //         }
+        //     })
+        // })
+        Promise.all([
+            createPromise("https://easy-mock.com/mock/5cadb508b56fc13f6206ad0e/example/arr.txt"),
+            createPromise("https://easy-mock.com/mock/5cadb508b56fc13f6206ad0e/example/json.txt")]).then(function(arr){
+            let [res1,res2]=arr
+            console.log(res1,res2)
+        },function(){
+            alert("至少一个失败")
+        })
+    </script>
+</body>
+</html>
