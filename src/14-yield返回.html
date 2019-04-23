@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function *show(){
+            alert('a')
+            yield 12
+            alert('b')
+            //return
+        }
+        let gen=show()
+        res1=gen.next()
+        console.log(res1)//{value:12,done:false}
+        res2=gen.next()
+        console.log(res2)//{value:undefined(取决于函数体中的return值),done:true}
+    </script>
+</body>
+</html>
